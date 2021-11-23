@@ -1,7 +1,7 @@
 .sidebar{
   
     height: calc(100vh - 50px);
-    background-color: rgb(251, 251, 255);
+    background-color: rgb(255, 255, 255);
     top: 50px;
 }
 
@@ -33,7 +33,7 @@
 }
 
 .sidebar-Item:hover{
-    background-color: #7dc3e4;
+    background-color: #000000;
     color: white;
     font-weight: bold;
 }
