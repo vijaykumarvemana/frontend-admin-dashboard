@@ -13,3 +13,8 @@ background: linear-gradient(to right, #93EDC7, #1CD8D2); /* W3C, IE 10+/ Edge, F
     color: #615E3F;
   margin-bottom: 20px;
 }
+.new-user-list-ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}

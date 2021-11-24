@@ -1,0 +1,48 @@
+.new-user-list{
+    flex:1;
+    -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+    padding: 20px;
+    margin-right: 20px;
+    
+} 
+.new-user-list-title{
+    font-size: 20px;
+    font-weight: bold;
+   
+}
+
+.user-image{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.new-user-list-li{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    margin: 20px 0px;
+}
+.user-info{
+    display: flex;
+    flex-direction: column;
+}
+.user-name{
+    
+    font-weight: 600;
+}
+.user-title{
+    font-weight: 300;
+}
+.user-button{
+    display: flex;
+    align-items: center;
+    border: none;
+    border-radius: 10px;
+    padding: 5px 10px;
+    background-color: #00bcd4;
+    color: #fff;
+    cursor: pointer
+};

@@ -1,3 +1,4 @@
+import './NewUserList.css'
 import { Visibility } from "@material-ui/icons"
 
 const NewUserList = () => {
@@ -9,7 +10,7 @@ const NewUserList = () => {
                 <img src="https://avatars1.githubusercontent.com/u/12098981?s=460&v=4" alt="" className="user-image"/>
                 <div className="user-info">
                     <span className="user-name">vijay kumar</span>
-                    <span className="user-tilte">developer</span>
+                    <span className="user-title">developer</span>
                 </div>
                 <button className="user-button">
                     <Visibility className="user-button-icon"/>
@@ -20,7 +21,7 @@ const NewUserList = () => {
                 <img src="https://avatars1.githubusercontent.com/u/12098981?s=460&v=4" alt="" className="user-image"/>
                 <div className="user-info">
                     <span className="user-name">vijay kumar</span>
-                    <span className="user-tilte">developer</span>
+                    <span className="user-title">developer</span>
                 </div>
                 <button className="user-button">
                     <Visibility className="user-button-icon"/>
@@ -31,27 +32,17 @@ const NewUserList = () => {
                 <img src="https://avatars1.githubusercontent.com/u/12098981?s=460&v=4" alt="" className="user-image"/>
                 <div className="user-info">
                     <span className="user-name">vijay kumar</span>
-                    <span className="user-tilte">developer</span>
+                    <span className="user-title">developer</span>
                 </div>
                 <button className="user-button">
                     <Visibility className="user-button-icon"/>
                     Display 
                 </button>
             </li>
-            <li className="new-user-list-li">
-                <img src="https://avatars1.githubusercontent.com/u/12098981?s=460&v=4" alt="" className="user-image"/>
-                <div className="user-info">
-                    <span className="user-name">vijay kumar</span>
-                    <span className="user-tilte">developer</span>
-                </div>
-                <button className="user-button">
-                    <Visibility className="user-button-icon"/>
-                    Display 
-                </button>
-            </li>
+           
             </ul>
     </div>
-    
+
 
 
   )
