@@ -2,16 +2,19 @@
 import './App.css';
 import Topbar from './components/topbar/Topbar';
 import Sidebar from './components/sidebar/Sidebar';
-import UsefullInfo from './components/someInfo/UsefulInfo';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Home from './pages/home/Home';
 function App() {
   return (
-   <div>
+   <Router>
     <Topbar />
     <div className="container">
     <Sidebar />
-    <UsefullInfo />
+   <Switch>
+     <Route exact path="/" component={Home} />
+   </Switch>
     </div>
-    </div>
+    </Router>
   );
 }
 
