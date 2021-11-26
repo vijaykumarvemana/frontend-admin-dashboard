@@ -1,5 +1,6 @@
 import './Sidebar.css'
 import { AttachMoney, BarChart, DynamicFeed, LineStyle, MailOutline, PermIdentity, Storefront, Timeline, TrendingUp } from "@material-ui/icons"
+import { Link } from 'react-router-dom';
 
 
 const Sidebar = () => {
@@ -9,18 +10,22 @@ const Sidebar = () => {
                 <div className="sidebar-Menu">
                     <h3 className="sidebar-Title">Menu</h3>
                     <ul className="sidebar-List">
+                        <Link to="/" className="link">
                         <li className="sidebar-Item active">
                             <LineStyle className="sidebar-Icon" />
                             Home
                         </li>
+                        </Link>
                         <li className="sidebar-Item">
                             <PermIdentity className="sidebar-Icon" />
                             Users 
                         </li>
-                        <li className="sidebar-Item">
+                        <Link to="/products" className="link">
+                        <li className="sidebar-Item ">
                             <Storefront className="sidebar-Icon" />
                             Products
                         </li>
+                        </Link>
                     <li className="sidebar-Item">
                         <AttachMoney className="sidebar-Icon" />
                         Transactions 
