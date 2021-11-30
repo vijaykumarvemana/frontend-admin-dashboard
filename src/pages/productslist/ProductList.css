@@ -23,7 +23,9 @@
     color: white;
     cursor: pointer;
     margin-right: 20px;
+    line-height: calc(1.5em + .75rem);
 }
+
 
 .productListDelete{
     color: red;

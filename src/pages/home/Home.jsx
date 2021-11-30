@@ -12,7 +12,7 @@ const Home = () =>{
         
             <UsefullInfo />
             
-            
+           
             <Chart data={userData} title="User Analytics" grid datakey="Active User"/>
             
             <div className="home-new-latest" style={{"display":"flex", "marginLeft":"20px"}}>
@@ -20,6 +20,7 @@ const Home = () =>{
                 <LatestInfo />
                 
              </div>
+           
         </div>
    )  
 }

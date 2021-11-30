@@ -8,8 +8,8 @@ const Product = ({match}) => {
     const {id} = match.params;
     const [product, setProduct] = useState({});
     const [name, setName] = useState('');
-    const [price, setPrice] = useState(0);
-    const [stock, setStock] = useState(0);
+    const [price, setPrice] = useState(null);
+    const [stock, setStock] = useState(null);
     const [status, setStatus] = useState('');
     const [image, setImage] = useState('');
      useEffect(() => {
@@ -31,10 +31,12 @@ const Product = ({match}) => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                name,
-                price,
-                stock,
-                status
+                name: name,
+                price: price,
+                stock: stock,
+                status: status,
+            
+               
             })
         });
         const data = await res.json();
@@ -150,7 +152,7 @@ const Product = ({match}) => {
                                                                 <input type="file" 
                                                                 id="file" 
                                                                 onChange={(e) => setImage(e.target.files[0])}
-                                                                style= {{display: "none"}}/>
+                                                                />
                                                                 </div>
                                                                 <button className="product-form-button" type="submit">update</button>
                                                                 </div>
