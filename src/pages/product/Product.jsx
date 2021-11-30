@@ -4,67 +4,96 @@ import {Publish} from "@material-ui/icons"
 import './Product.css'
 import { useState, useEffect } from 'react';
 
-const Product = ({match}) => {
+ const Product = ({match}) => {
     const {id} = match.params;
     const [product, setProduct] = useState({});
-    const [name, setName] = useState('');
-    const [price, setPrice] = useState(null);
-    const [stock, setStock] = useState(null);
-    const [status, setStatus] = useState('');
+    // const [name, setName] = useState('');
+    // const [price, setPrice] = useState(null);
+    // const [stock, setStock] = useState(null);
+    // const [status, setStatus] = useState('');
     const [image, setImage] = useState('');
+    const [updateProduct, setUpdateProduct] = useState({
+        name: '',
+        price: null,
+        stock: null,
+        status: '',
+    });
      useEffect(() => {
         const data = fetch(`http://localhost:3001/products/${id}`)
             .then(res => res.json())
             .then(res => {
                 setProduct(res);
-               
+                setUpdateProduct({
+                    name: res.name,
+                    price: res.price,
+                    stock: res.stock,
+                    status: res.status,
+
+                })
             });
     }, []);
- console.log(product);
+
+
+
 
  const handleSubmit = async(e) => {
     e.preventDefault();
+console.log(updateProduct);
     try{
         const res = await fetch(`http://localhost:3001/products/${id}`,{
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-                name: name,
-                price: price,
-                stock: stock,
-                status: status,
-            
-               
-            })
+            body: JSON.stringify(updateProduct)
         });
+        
         const data = await res.json();
         console.log(data);
         if(image !== undefined){
-            const formData = new FormData();
-            formData.append('product-image', image);
-            const res = await fetch(`http://localhost:3001/products/${id}/image`,{
-                method: 'PUT',
-                body: formData
-            });
-            const data = await res.json();
-            console.log(data);
+            editImage();
         }
+        
+        window.location.reload();
+        
+        
     }
     catch(err){
         console.log(err);
     }
 }   
 
+const editImage = async () => {
+    const formData = new FormData();
+    formData.append('product-image', image);
+    try{
+        const res = await fetch(`http://localhost:3001/products/${id}/image`,{
+            method: 'POST',
+            body: formData
+        });
+        if(res.ok){
+            const data = await res.json();
+            console.log(data);
+        }else{
+            console.log('error');
+        }
+    }catch
+    {
+        console.log('error');
+    }
+}
 
 
-// const imageUpload = (e) => {
-//     if(e.target.files[0]== 0){
-//         console.log('no file selected');
-//     }else{
-//         setImage(e.target.files[0]);
-//     }
+
+const imageUpload = (e) => {
+    if(e.target.files[0]== 0){
+        console.log('no file selected');
+    }else{
+        setImage(e.target.files[0]);
+        
+    }
+    console.log(image);
+}
 
     return(
         <div className="product">
@@ -104,32 +133,32 @@ const Product = ({match}) => {
                                             </div>
                                             </div>
                                             <div className="product-bottom">
-                                                <from className="product-form" onSubmit={handleSubmit}>
+                                                <from className="product-form" >
                                                     <div className="product-form-left">
                                                         <label className="product-form-label"> Name:</label>
                                                         <input className="product-form-input" 
-                                                        type="text" value={name}
-                                                         onChange= {(e) => setName(e.target.value)}
+                                                        type="text" value={updateProduct.name}
+                                                         onChange= {(e) => setUpdateProduct({...updateProduct, name: e.target.value})}
                                                             placeholder=" enter product name"
                                                             />
                                                         <label className="product-form-label"> Stock:</label>
                                                         <input className="product-form-input" 
-                                                        type="text" 
-                                                        value={stock}
-                                                        onChange= {(e) => setStock(e.target.value)} 
+                                                        type="number" 
+                                                        value={updateProduct.stock}
+                                                        onChange= {(e) => setUpdateProduct({...updateProduct, stock: e.target.value})} 
                                                         placeholder=" enter Stoke"
                                                         />
                                                         <label className="product-form-label"> Status:</label>
                                                         <input className="product-form-input" 
                                                         type="text" 
-                                                        value={status}
-                                                        onChange= {(e) => setStatus(e.target.value)} 
+                                                        value={updateProduct.status}
+                                                        onChange= {(e) => setUpdateProduct({...updateProduct, status: e.target.value})} 
                                                         placeholder=" enter status"/>
                                                         <label className="product-form-label"> Price:</label>
                                                         <input className="product-form-input" 
-                                                        type="text" 
-                                                        value={price}
-                                                        onChange= {(e) => setPrice(e.target.value)}
+                                                        type="number" 
+                                                        value={updateProduct.price}
+                                                        onChange= {(e) => setUpdateProduct({...updateProduct, price: e.target.value})}
                                                          placeholder=" enter price"/>
                                                         {/* <label>In Stock </label>
                                                         <section name="inStock" id="idStock">
@@ -151,11 +180,11 @@ const Product = ({match}) => {
                                                                 </label>
                                                                 <input type="file" 
                                                                 id="file" 
-                                                                onChange={(e) => setImage(e.target.files[0])}
+                                                                onChange={(e) => imageUpload(e)}
                                                                 />
                                                                 </div>
-                                                                <button className="product-form-button" type="submit">update</button>
-                                                                </div>
+                                                                <button className="product-form-button" type="submit" onClick={handleSubmit}>update</button>
+                                                             </div>
                                                                 </from>
                                                                 </div>
                                             </div>
@@ -163,5 +192,6 @@ const Product = ({match}) => {
                                           
     )
 }
+
 
 export default Product;
