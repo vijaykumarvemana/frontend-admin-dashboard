@@ -1,8 +1,8 @@
-const Profile = () => {
+const Profile = ({user}) => {
 
     return (
         <div>
-            <h1>Profile</h1>
+            <h1>profilefsddd</h1>
         </div>
     );
 }

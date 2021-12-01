@@ -31,7 +31,7 @@ import { useState, useEffect } from 'react';
 
                 })
             });
-    }, []);
+    }, [id]);
 
 
 
@@ -86,7 +86,7 @@ const editImage = async () => {
 
 
 const imageUpload = (e) => {
-    if(e.target.files[0]== 0){
+    if(e.target.files[0]=== 0){
         console.log('no file selected');
     }else{
         setImage(e.target.files[0]);

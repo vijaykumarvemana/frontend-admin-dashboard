@@ -4,10 +4,12 @@ import NewUserList from '../../components/newUserList/NewUserList';
 import UsefullInfo from '../../components/someInfo/UsefulInfo';
 import Profile from '../../components/profile/Profile';
 import { userData } from '../../somedata.js';
-const Home = () =>{
+import { useState } from 'react';
+const Home = (props) =>{
+   console.log(props);
    return ( 
 
-        
+        <div className="d-flex">
         <div className="home-page">
         
             <UsefullInfo />
@@ -22,6 +24,11 @@ const Home = () =>{
              </div>
            
         </div>
+        
+            <Profile /> 
+        
+        
+         </div>
    )  
 }
 

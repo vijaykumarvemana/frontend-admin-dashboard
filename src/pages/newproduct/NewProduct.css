@@ -1,0 +1,44 @@
+.new-product{
+    flex:4;
+    margin-left:250px;
+    color: #000;
+}
+.new-product .new-product-title{
+    font-size:1.5rem;
+    font-weight:grey;
+    margin-bottom:1rem;
+}
+.new-product-form{
+    margin-top: 10px;
+}
+.new-product-item{
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    
+    width: 250px;
+    margin-bottom:10px;
+}
+.new-product-item > label{
+    color: gray;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.new-product-item > input{
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    color: #139b57;
+    
+}
+.new-product-button{
+    background-color: #139b57;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 5px;
+    width: 150px;
+    height: 45px;
+    margin-top: 10px;
+}

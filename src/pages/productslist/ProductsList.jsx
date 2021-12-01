@@ -23,7 +23,7 @@ const ProductsList = () =>{
 
     
  const handleDelete = (_id) => {
-   const newData = data.filter(item => item._id !== _id);
+  //  const newData = data.filter(item => item._id !== _id);
    const result = fetch(`http://localhost:3001/products/${_id}`, {
          method: 'DELETE',
             headers: {
@@ -31,7 +31,8 @@ const ProductsList = () =>{
             }
         })  .then(res => res.json())
         .then(res => {
-            alert("product deleted");
+            
+            window.location.reload();
         }
         )   .catch(err => console.log(err));
     };

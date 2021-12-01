@@ -9,6 +9,7 @@ import ProductsList from './pages/productslist/ProductsList';
 import Product from './pages/product/Product';
 import Login from './pages/login/Login';
 import Profile from './components/profile/Profile';
+import NewProduct from './pages/newproduct/NewProduct';
 function App() {
   const user = localStorage.getItem('token');
   return (
@@ -25,9 +26,10 @@ function App() {
          <Switch>
       
            <Route exact path="/" component={Home} />
-           <Route exact path="/profile" component={Profile} />
+           {/* <Route exact path="/profile" component={Profile} /> */}
            <Route path="/products" component={ProductsList} />
             <Route path="/product/:id" component={Product} />
+            <Route path="/newproduct" component={NewProduct} />
          </Switch>
         
           </div>

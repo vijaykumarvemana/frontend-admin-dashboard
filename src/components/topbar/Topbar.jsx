@@ -4,12 +4,13 @@ import Badge from '@material-ui/core/Badge';
 import {NotificationsNone, Settings }from '@material-ui/icons';
 import { IconButton } from '@material-ui/core';
 import Profile from '../profile/Profile';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Home from '../../pages/home/Home';
+import { BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
 
-const Topbar = () => {
+const Topbar = ({}) => {
     const [user, setUser] = useState({})
     useEffect(() => {
-        const data = fetch('http://localhost:3001/')
+        const data = fetch('http://localhost:3001')
             .then(res => res.json())
             .then(res => {
                 console.log(res);
@@ -18,7 +19,7 @@ const Topbar = () => {
     }, []);
     const handleProfile = () => {
         console.log(user);
-       
+      
      
     }
 
@@ -36,9 +37,11 @@ const Topbar = () => {
                     </Badge>
                     </IconButton>
                     <IconButton><Settings /></IconButton>
-                      <IconButton onClick={handleProfile}>   
                      
-                     <img src={((user[1])||{}).image} alt="" className="topbar-profile-image" />   
+                      <IconButton onClick={handleProfile}>   
+                      
+                     
+                     <img src="https://previews.123rf.com/images/panyamail/panyamail1809/panyamail180900343/109879063-user-avatar-icon-sign-profile-symbol.jpg" alt="" className="topbar-profile-image" />   
                      </IconButton>
                      </div>
                 </div>
