@@ -1,11 +1,12 @@
 import './UsefullInfo.css'
 import { ArrowDownward } from '@material-ui/icons';
-
+import {InsertChart} from '@material-ui/icons';
 const UsefullInfo = () => {
     return (
         <div className="usefull-info">
           <div className="usefull-Item Item1">
             <span className="usefull-Info-Title"> Revanue</span>
+            <InsertChart className="icon-item" />
             <div className="usefull-Info-Value-Container">
                 <span className="usefull-Info-Value">$1,000,000</span>
                 <span className="usefull-Info-Value-Unit">

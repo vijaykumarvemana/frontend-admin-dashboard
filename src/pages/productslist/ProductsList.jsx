@@ -23,7 +23,7 @@ const ProductsList = () =>{
 
     
  const handleDelete = (_id) => {
-  //  const newData = data.filter(item => item._id !== _id);
+  const newData = data.filter(item => item._id !== _id);
    const result = fetch(`http://localhost:3001/products/${_id}`, {
          method: 'DELETE',
             headers: {
@@ -31,9 +31,12 @@ const ProductsList = () =>{
             }
         })  .then(res => res.json())
         .then(res => {
+          
+           console.log(res); 
+           window.location.reload();
             
-            window.location.reload();
         }
+        
         )   .catch(err => console.log(err));
     };
 
@@ -87,7 +90,12 @@ const ProductsList = () =>{
   
     return (
       <div className="productList" style={{ height: "75vh", width: '70%' }}>
-          <h4>Products List</h4>
+        <div className="d-flex my-3">
+          <h4 className="product-list-title">products</h4>
+          <Link to="/newproduct">
+                <button className="product-button-1">Create</button>
+            </Link>
+        </div>
         <DataGrid 
           rows={data}
           disableSelectionOnClick

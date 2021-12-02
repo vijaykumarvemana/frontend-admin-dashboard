@@ -105,7 +105,7 @@ const imageUpload = (e) => {
         </div>
         <div className="product-top">
             <div className="product-top-left">
-                <Chart />
+                <Chart data={product}/>
                 </div>
                 <div className="product-top-right">
                     <div className="product-info-top">

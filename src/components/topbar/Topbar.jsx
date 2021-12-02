@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
 
 const Topbar = ({}) => {
     const [user, setUser] = useState({})
+    const [toggle , setToggle] = useState(false)
     useEffect(() => {
         const data = fetch('http://localhost:3001')
             .then(res => res.json())
@@ -19,12 +20,14 @@ const Topbar = ({}) => {
     }, []);
     const handleProfile = () => {
         console.log(user);
-      
+        setToggle(!toggle)
+       
      
     }
 
         
     return (
+        <>
         <div className="topbar">
             <div className="topbar-wrapper">
                 <div className="topbar-left">
@@ -36,7 +39,7 @@ const Topbar = ({}) => {
                     <NotificationsNone color="action" />
                     </Badge>
                     </IconButton>
-                    <IconButton><Settings /></IconButton>
+                    
                      
                       <IconButton onClick={handleProfile}>   
                       
@@ -46,6 +49,12 @@ const Topbar = ({}) => {
                      </div>
                 </div>
             </div>
+            {
+                toggle ? <Profile  user={user}/> : null
+            }
+            
+            </>
+
     )
 }
 

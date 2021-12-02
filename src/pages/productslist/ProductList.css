@@ -31,6 +31,17 @@
     color: red;
     cursor: pointer;
 }
+.product-button-1{
+    width: 80px;
+    border: none;
+    padding: 5px;
+    background-color: teal;
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 945px;
+}
 /* .productListGrid{
     background: #536976;  
 background: -webkit-linear-gradient(to right, #292E49, #536976);  

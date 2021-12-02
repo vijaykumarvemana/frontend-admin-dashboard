@@ -5,8 +5,10 @@ import UsefullInfo from '../../components/someInfo/UsefulInfo';
 import Profile from '../../components/profile/Profile';
 import { userData } from '../../somedata.js';
 import { useState } from 'react';
+import './Home.css';
 const Home = (props) =>{
    console.log(props);
+  
    return ( 
 
         <div className="d-flex">
@@ -24,8 +26,18 @@ const Home = (props) =>{
              </div>
            
         </div>
+        <div className="hello">
+           <h2 className="hello-text">Hello, vijay how are you.......
+           </h2>
+           <img className="hello-img" src="https://www.w3schools.com/howto/img_avatar.png" alt="avatar" style={{height:"100px", width:"100px" }}/>
+             <p className="hello-text">
+                  fjhkajfdkl
+               </p>
         
-            <Profile /> 
+       
+           
+            </div>
+
         
         
          </div>

@@ -1,7 +1,39 @@
 import './NewUserList.css'
 import { Visibility } from "@material-ui/icons"
+import { useEffect, useState } from 'react'
 
 const NewUserList = () => {
+    const [toggle , setToggle] = useState(false)
+    const [users , setUsers] = useState([])
+    const handleClick = () => {
+        setToggle(!toggle)
+    }
+ 
+
+
+ 
+ useEffect( async() => {
+    try{
+        const response = await fetch('http://localhost:3001/api/contacts',
+        {
+            method: 'GET',
+           
+        })
+        
+                    
+    if(response.ok){
+        const data = await response.json()
+        console.log(data)
+        setUsers(data) 
+    }else{
+        console.log('error')
+    }
+        }catch(error){
+            console.log(error)
+        }
+},[]);
+  
+
   return(
     <div className="new-user-list">
         <sapn className="new-user-list-title">New Join Users</sapn>
@@ -12,11 +44,20 @@ const NewUserList = () => {
                     <span className="user-name">vijay kumar</span>
                     <span className="user-title">developer</span>
                 </div>
-                <button className="user-button">
+                <button className="user-button" onClick={handleClick}>
                     <Visibility className="user-button-icon"/>
                     Display 
                 </button>
+              
             </li>
+            {
+                    toggle && <div className="user-description">
+                        < div>
+                            Lorem ipsum dolor 
+                        </div>
+                    </div>
+
+                }
             <li className="new-user-list-li">
                 <img src="https://avatars1.githubusercontent.com/u/12098981?s=460&v=4" alt="" className="user-image"/>
                 <div className="user-info">
