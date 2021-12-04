@@ -11,6 +11,7 @@ import Login from './pages/login/Login';
 import Profile from './components/profile/Profile';
 import Users from './pages/users/Users';
 import User from './pages/user/User';
+import NewUser from './pages/newuser/NewUser';
 import NewProduct from './pages/newproduct/NewProduct';
 function App() {
   const user = localStorage.getItem('token');
@@ -31,6 +32,7 @@ function App() {
            {/* <Route exact path="/profile" component={Profile} /> */}
            <Route path="/users" component={Users} />
            <Route path="/user/:id" component={User} />
+           <Route path="/newuser" component={NewUser} />
            <Route path="/products" component={ProductsList} />
             <Route path="/product/:id" component={Product} />
             <Route path="/newproduct" component={NewProduct} />

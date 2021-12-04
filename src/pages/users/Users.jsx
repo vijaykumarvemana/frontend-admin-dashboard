@@ -74,7 +74,7 @@ const deleteUser = async (id) => {
         <div className= "user-list d-flex">
             <div className="d-flex my-3">
           <h4 className="user-list-title">products</h4>
-          <Link to="/newproduct">
+          <Link to="/newuser">
                 <button className="user-button">Create</button>
             </Link>
         </div>
