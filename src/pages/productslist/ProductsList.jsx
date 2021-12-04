@@ -22,23 +22,7 @@ const ProductsList = () =>{
    
 
     
- const handleDelete = (_id) => {
-  const newData = data.filter(item => item._id !== _id);
-   const result = fetch(`http://localhost:3001/products/${_id}`, {
-         method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })  .then(res => res.json())
-        .then(res => {
-          
-           console.log(res); 
-           window.location.reload();
-            
-        }
-        
-        )   .catch(err => console.log(err));
-    };
+ 
 
   
     const columns = [
@@ -86,6 +70,17 @@ const ProductsList = () =>{
         },
       },
     ];
+
+    const handleDelete = async (id) => {
+      alert("Are you sure you want to delete this product?");
+      await fetch(`http://localhost:3001/products/${id}`, {
+        method: "DELETE",
+      });
+      
+      fetchData();
+    };
+
+
    
   
     return (

@@ -1,3 +1,4 @@
+import './Users.css';
 import { DataGrid } from '@material-ui/data-grid';
 import { DeleteOutline } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
@@ -31,29 +32,52 @@ const Users = () => {
             </div>)
         },
     },
-    { field: 'email', headerName: 'Email', width: 90 },
-    { field: 'phone', headerName: 'Phone', width: 90 },
-//     {field: "avatar", headerName: "Image", width: 90, 
-// renderCell: (params) => {
-//     return <img src={params.data.avatar} alt="avatar" width="50" height="50" />
-// }},
+    { field: 'email', headerName: 'Email', width: 200},
+    { field: 'phone', headerName: 'Phone', width:200 },
 
-    { field: 'address', headerName: 'Address', width: 90 },
-    { field: 'status', headerName: 'Status', width: 90 },
-    { field: 'action', headerName: 'Action', width: 90,
+    { field: 'address', headerName: 'Address', width: 200 },
+    { field: 'status', headerName: 'Status', width: 120 },
+    { field: 'action', headerName: 'Action', width: 150,
      renderCell: (params) => {
-            return <Link to={`/users/${((params.row) || {})._id}`}>Edit</Link>
-    }
+ 
+            return (     <>
+            <Link to={"/user/" + params.row._id}>
+                <button className="user-button">Edit</button>
+                </Link>
+            <DeleteOutline onClick={() => deleteUser(params.row._id)} className="delete-user"/>
+            </>)
+        
+   }
     }
 ];
 console.log(columns);
+
+const deleteUser = async (id) => {
+    alert('Are you sure you want to delete this user?');
+    const response = await fetch(`http://localhost:3001/customers/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+    const data = await response.json();
+    console.log(data);
+    fetchUsers();
+}
+
 
      
 
 
 
     return (    
-        <div className= "user-list">
+        <div className= "user-list d-flex">
+            <div className="d-flex my-3">
+          <h4 className="user-list-title">products</h4>
+          <Link to="/newproduct">
+                <button className="user-button">Create</button>
+            </Link>
+        </div>
             <DataGrid 
                rows={data}
                 columns={columns}
