@@ -16,10 +16,12 @@ const Sidebar = () => {
                             Home
                         </li>
                         </Link>
+                        <Link to="/users" className="link">
                         <li className="sidebar-Item">
                             <PermIdentity className="sidebar-Icon" />
                             Users 
                         </li>
+                        </Link>
                         <Link to="/products" className="link">
                         <li className="sidebar-Item ">
                             <Storefront className="sidebar-Icon" />
