@@ -44,7 +44,7 @@ const Topbar = ({}) => {
                       <IconButton onClick={handleProfile}>   
                       
                      
-                     <img src="https://previews.123rf.com/images/panyamail/panyamail1809/panyamail180900343/109879063-user-avatar-icon-sign-profile-symbol.jpg" alt="" className="topbar-profile-image" />   
+                     <img src={((user[0]) || {}).image} style={{width:"30px", height:"30px",  border: "1px solid black", borderRadius: "50%", objectFit:"cover"}}/>   
                      </IconButton>
                      </div>
                 </div>
