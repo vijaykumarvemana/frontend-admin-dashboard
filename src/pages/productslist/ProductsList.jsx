@@ -3,8 +3,13 @@ import { DataGrid } from '@material-ui/data-grid';
 import DeleteOutline from '@material-ui/icons/DeleteOutline';
 import {Link} from 'react-router-dom'
 import { useEffect, useState } from 'react';
+import {useSelector, useDispatch} from 'react-redux'
+import { addProducts, removeProduct } from '../../actions'
 
 const ProductsList = () =>{
+
+  const products = useSelector(state => state.product.products)
+  const dispatch = useDispatch()
     const [data, setData] = useState([]);
 
     useEffect(() => {
@@ -17,6 +22,7 @@ const ProductsList = () =>{
         const result = await fetch('http://localhost:3001/products');
         const data = await result.json();
             setData(data);
+            dispatch(addProducts(data))
             console.log(data);
         };
    
@@ -76,6 +82,7 @@ const ProductsList = () =>{
       await fetch(`http://localhost:3001/products/${id}`, {
         method: "DELETE",
       });
+      dispatch(removeProduct(id))
       
       fetchData();
     };
