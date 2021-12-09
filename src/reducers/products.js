@@ -6,7 +6,8 @@ const productsReducer = (state = initialState.product, action) => {
         case ADD_PRODUCTS: {
             return {
                 ...state,
-                products: [...state.products, action.payload],
+                products: action.payload
+            
             }
         }
 

@@ -1,42 +1,53 @@
 import './UsefullInfo.css'
-import { ArrowDownward } from '@material-ui/icons';
-import {InsertChart} from '@material-ui/icons';
+import { ArrowDownward, PaymentRounded, PeopleRounded } from '@material-ui/icons';
+
+import {InsertChart , CategoryRounded} from '@material-ui/icons';
+import { useSelector } from 'react-redux';
 const UsefullInfo = () => {
+    const products = useSelector(state => state.product.products);
+    const customers = useSelector(state => state.customer.customers);
+    console.log(products);
     return (
         <div className="usefull-info">
           <div className="usefull-Item Item1">
-            <span className="usefull-Info-Title"> Revanue</span>
-            <InsertChart className="icon-item" />
+            <span className="usefull-Info-Title">Total Products</span>
+            
             <div className="usefull-Info-Value-Container">
-                <span className="usefull-Info-Value">$1,000,000</span>
+                <span className="usefull-Info-Value">
+                     <CategoryRounded />
+                     </span>
                 <span className="usefull-Info-Value-Unit">
-                    -14.5%
-                    <ArrowDownward className="usefullIcon negative"/>
+                {products.length}
+                  
                 </span>
             </div>
-            <span className="usefull-Info-Value-Sub">compared to last Month</span>
+            
             </div>
             <div className="usefull-Item Item2">
-            <span className="usefull-Info-Title"> Sales</span>
+            <span className="usefull-Info-Title"> Total Users</span>
             <div className="usefull-Info-Value-Container"> 
-                <span className="usefull-Info-Value">$1,000,000</span>
+                <span className="usefull-Info-Value">
+                    <PeopleRounded />
+                </span>
                 <span className="usefull-Info-Value-Unit">
-                    -14.5%
-                    <ArrowDownward className="usefull-Icon negative"/>   
+                {customers.length}
+                     
                 </span>
             </div>
-            <span className="usefull-Info-Value-Sub">compared to last Month</span>
+            
             </div>
             <div className="usefull-Item Item3">
-            <span className="usefull-Info-Title"> Cost</span>
+            <span className="usefull-Info-Title"> Transactions</span>
             <div className="usefull-Info-Value-Container">
-                <span className="usefull-Info-Value">$1,000,000</span>
+                <span className="usefull-Info-Value">
+                     <PaymentRounded />
+                </span>
                 <span className="usefull-Info-Value-Unit">
-                    -14.5%
-                    <ArrowDownward className="usefullIcon negative"/>
+                  250 
+                    
                 </span>
             </div>
-            <span className="usefull-Info-Value-Sub">compared to last Month</span>  
+              
             </div>
         </div>
 

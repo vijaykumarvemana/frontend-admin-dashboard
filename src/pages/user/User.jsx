@@ -1,6 +1,6 @@
 import './User.css';
 
-import  { PermIdentity, CalendarToday, MailOutline, LocationOn, PhoneAndroid, Publish, ImageOutlined } from "@material-ui/icons"
+import  { CalendarToday, MailOutline, LocationOn, PhoneAndroid, Publish} from "@material-ui/icons"
 import { useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';    
 

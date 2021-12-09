@@ -38,10 +38,10 @@ const Sidebar = () => {
                     </li>
                     
 
-                    <li className="sidebar-Item">
+                    {/* <li className="sidebar-Item">
                         <BarChart className="sidebar-Icon" />
                         Reports
-                    </li>
+                    </li> */}
                     </ul>
                 </div>
                 <div className="sidebar-Menu">
@@ -51,10 +51,10 @@ const Sidebar = () => {
                             <MailOutline className="sidebar-Icon" />
                             Mail 
                         </li>
-                        <li className="sidebar-Item">
+                        {/* <li className="sidebar-Item">
                             <DynamicFeed className="sidebar-Icon" />
                             Feedback 
-                        </li>
+                        </li> */}
                         <li className="sidebar-Item">
                             <Timeline className="sidebar-Icon" />
                             Analytics 

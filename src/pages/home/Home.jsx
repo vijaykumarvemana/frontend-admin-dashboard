@@ -27,11 +27,11 @@ const Home = (props) =>{
            
         </div>
         <div className="hello">
-           <h2 className="hello-text">Hello, vijay how are you.......
+           <h2 className="hello-text">Hello, ....
            </h2>
            <img className="hello-img" src="https://www.w3schools.com/howto/img_avatar.png" alt="avatar" style={{height:"100px", width:"100px" }}/>
              <p className="hello-text">
-                  fjhkajfdkl
+                  good morning,
                </p>
         
        

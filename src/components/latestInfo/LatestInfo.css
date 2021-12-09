@@ -16,6 +16,8 @@
 }
 .latest-info-table-header{
     text-align: left;
+    padding: 10px;
+    background-color: aliceblue;
 }
 .latest-info-table-user{
     display: flex;
@@ -28,9 +30,11 @@
     border-radius: 50%;
     object-fit: cover;
     margin-right: 10px;
+    margin-bottom: 4px;
 }
 .latest-info-table-date, .latest-info-table-amount{
    font-weight: 300;
+   text-align: center;
 }
 .latest-info-button{
     padding:5px 7px;
@@ -41,3 +45,23 @@
     background-color: #ffc107;
     color: #000;
 }
+.latest-info-table-status-pending{
+    background-color: #f1c02a;
+    padding: 5PX;
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+}
+.latest-info-table-status-approved{
+    background-color: #28a745;
+    padding: 5PX;
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
+}
+.latest-info-table-status-rejected{
+    background-color: #dc3545;
+    padding: 5PX;
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
+}
+

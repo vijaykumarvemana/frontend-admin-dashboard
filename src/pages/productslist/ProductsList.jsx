@@ -7,26 +7,34 @@ import {useSelector, useDispatch} from 'react-redux'
 import { addProducts, removeProduct } from '../../actions'
 
 const ProductsList = () =>{
+  const BASE_URL = process.env.REACT_APP_API_URL
+  console.log(BASE_URL)
 
-  const products = useSelector(state => state.product.products)
+  
+ const products = useSelector(state => state)
+ console.log(products)
   const dispatch = useDispatch()
-    const [data, setData] = useState([]);
+  const [data, setData] = useState([]);
+
 
     useEffect(() => {
-        
+        dispatch(addProducts())
         fetchData();
     }, []);
 
     
         const fetchData = async () => {
-        const result = await fetch('http://localhost:3001/products');
+        const result = await fetch(`${BASE_URL}/products`);
         const data = await result.json();
+        
             setData(data);
-            dispatch(addProducts(data))
-            console.log(data);
+           
+           
+            
+           
         };
-   
-
+        
+        
     
  
 
@@ -76,17 +84,18 @@ const ProductsList = () =>{
         },
       },
     ];
+    
 
     const handleDelete = async (id) => {
       alert("Are you sure you want to delete this product?");
-      await fetch(`http://localhost:3001/products/${id}`, {
+      await fetch(`${BASE_URL}/products/${id}`, {
         method: "DELETE",
       });
-      dispatch(removeProduct(id))
-      
+     
+      window.location.reload();
       fetchData();
     };
-
+ 
 
    
   

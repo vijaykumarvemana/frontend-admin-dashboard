@@ -3,7 +3,7 @@ import productsReducer from "../reducers/products";
 import usersReducer from "../reducers/users";
 import thunk from "redux-thunk";
 import { persistStore, persistReducer } from 'redux-persist'
-import localStorage from 'redux-persist/lib/storage'
+import storageSession from 'redux-persist/lib/storage/session'
 import { encryptTransform } from 'redux-persist-transform-encrypt'
 
 
@@ -15,16 +15,16 @@ export const initialState = {
     customer: {
         customers: [],
     },
-    product: {
-        products: [],
-    },
+    product: { 
+        products: [], 
+    },  
 }
 
 const persistConfig = {
     key: 'root',
-    storage: localStorage,
+    storage: storageSession,
     transforms: [encryptTransform({
-        secretKey: 'my-super-secret-key',
+        secretKey: process.env.REACT_APP_SECRET_KEY,
         onError: (error) => {
             console.log(error);
         },

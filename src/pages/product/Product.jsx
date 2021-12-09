@@ -5,6 +5,7 @@ import './Product.css'
 import { useState, useEffect } from 'react';
 
  const Product = ({match}) => {
+    const BASE_URL = process.env.REACT_APP_API_URL
     const {id} = match.params;
     const [product, setProduct] = useState({});
     // const [name, setName] = useState('');
@@ -19,7 +20,7 @@ import { useState, useEffect } from 'react';
         status: '',
     });
      useEffect(() => {
-        const data = fetch(`http://localhost:3001/products/${id}`)
+        const data = fetch(`${BASE_URL}/products/${id}`)
             .then(res => res.json())
             .then(res => {
                 setProduct(res);
@@ -40,7 +41,7 @@ import { useState, useEffect } from 'react';
     e.preventDefault();
 console.log(updateProduct);
     try{
-        const res = await fetch(`http://localhost:3001/products/${id}`,{
+        const res = await fetch(`${BASE_URL}/products/${id}`,{
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -67,7 +68,7 @@ const editImage = async () => {
     const formData = new FormData();
     formData.append('product-image', image);
     try{
-        const res = await fetch(`http://localhost:3001/products/${id}/image`,{
+        const res = await fetch(`${BASE_URL}/products/${id}/image`,{
             method: 'POST',
             body: formData
         });

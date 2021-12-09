@@ -5,24 +5,51 @@ export const REMOVE_PRODUCT = 'REMOVE_PRODUCT';
 
 
 
-export const addCustomers = (customers) => ({
-    type: ADD_CUSTOMERS,
-    paload: customers
-}) 
+export const addCustomers = () => {
+    return  async (dispatch, getState) => {
+        try {
+            const response = await fetch('http://localhost:3001/customers');
+            const customers = await response.json();
+            dispatch({
+                type: ADD_CUSTOMERS,
+                payload: customers,
+            })
+        } catch (error) {
+            console.log(error);
+        }
+    }
+}
 
-export const removeCustomer =(index) => ({
-    type: REMOVE_CUSTOMER,
-    paload: index
-})
+// export const removeCustomer =(index) => ({
+//     type: REMOVE_CUSTOMER,
+//     paload: index
+// })
 
-export const addProducts = (products) => ({
-    type: ADD_PRODUCTS,
-    paload: products
-})
+export const addProducts = () => {
+    return  async (dispatch, getState) => {
+        try {
+            const response = await fetch('http://localhost:3001/products');
+            const products = await response.json();
+            dispatch({
+                type: ADD_PRODUCTS,
+                payload: products,
+            })
+        } catch (error) {
+            console.log(error);
+        }
+    }
+}
 
-export const removeProduct = (index) => ({
-    type: REMOVE_PRODUCT,
-    paload: index
-})
+
+
+
+
+
+
+
+// export const removeProduct = (index) => ({
+//     type: REMOVE_PRODUCT,
+//     paload: index
+// })
 
    

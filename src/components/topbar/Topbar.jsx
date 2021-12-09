@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import '../topbar/Topbar.css'
 import Badge from '@material-ui/core/Badge';
-import {NotificationsNone, Settings }from '@material-ui/icons';
+import {NotificationsNone}from '@material-ui/icons';
 import { IconButton } from '@material-ui/core';
 import Profile from '../profile/Profile';
-import Home from '../../pages/home/Home';
-import { BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
 
-const Topbar = ({}) => {
+
+const Topbar = () => {
     const [user, setUser] = useState({})
     const [toggle , setToggle] = useState(false)
     useEffect(() => {
@@ -44,7 +43,7 @@ const Topbar = ({}) => {
                       <IconButton onClick={handleProfile}>   
                       
                      
-                     <img src={((user[0]) || {}).image} style={{width:"30px", height:"30px",  border: "1px solid black", borderRadius: "50%", objectFit:"cover"}}/>   
+                     <img src={((user[0]) || {}).image} style={{width:"30px", height:"30px",  border: "1px solid black", borderRadius: "50%", objectFit:"cover"}} alt="image"/>   
                      </IconButton>
                      </div>
                 </div>

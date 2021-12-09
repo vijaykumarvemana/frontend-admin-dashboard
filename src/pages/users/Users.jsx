@@ -4,11 +4,18 @@ import { DeleteOutline } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
+import { useSelector, useDispatch } from 'react-redux';
+import { addCustomers } from '../../actions';
+
 const Users = () => {
+    const users = useSelector(state => state);
+    console.log(users);
+    const dispatch = useDispatch();
 
     const [data, setUsers] = useState([]);
 
     useEffect(() => {
+        dispatch(addCustomers())
         fetchUsers();
     }, []);
 
@@ -17,8 +24,9 @@ const Users = () => {
         const response = await fetch('http://localhost:3001/customers');
         const data = await response.json();
         setUsers(data);
-        console.log(data);
+        
     }
+   
 
  const columns = [
     { field: 'id', headerName: 'ID', width: 90 },
@@ -50,7 +58,7 @@ const Users = () => {
    }
     }
 ];
-console.log(columns);
+
 
 const deleteUser = async (id) => {
     alert('Are you sure you want to delete this user?');
@@ -62,6 +70,7 @@ const deleteUser = async (id) => {
     });
     const data = await response.json();
     console.log(data);
+    window.location.reload();
     fetchUsers();
 }
 

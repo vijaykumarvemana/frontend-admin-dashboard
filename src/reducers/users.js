@@ -7,7 +7,7 @@ const usersReducer = (state = initialState.customer, action) => {
         case ADD_CUSTOMERS:{
             return {
                 ...state,   
-                customers: [...state.customers, action.payload]
+                customers: action.payload
             }
            
         }
