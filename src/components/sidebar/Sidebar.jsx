@@ -28,14 +28,18 @@ const Sidebar = () => {
                             Products
                         </li>
                         </Link>
+                        <Link to="/transactions" className="link">
                     <li className="sidebar-Item">
                         <AttachMoney className="sidebar-Icon" />
                         Transactions 
                     </li>
+                    </Link>
+                   
                     <li className="sidebar-Item">
                         <TrendingUp className="sidebar-Icon" />
                         Sales
                     </li>
+                
                     
 
                     {/* <li className="sidebar-Item">

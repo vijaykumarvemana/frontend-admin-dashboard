@@ -13,6 +13,8 @@ import Users from './pages/users/Users';
 import User from './pages/user/User';
 import NewUser from './pages/newuser/NewUser';
 import NewProduct from './pages/newproduct/NewProduct';
+import Transactions from './pages/transaction/Transactions';
+import Transaction from './pages/transactions/Transaction';
 function App() {
   const user = localStorage.getItem('token');
   return (
@@ -36,6 +38,8 @@ function App() {
            <Route path="/products" component={ProductsList} />
             <Route path="/product/:id" component={Product} />
             <Route path="/newproduct" component={NewProduct} />
+            <Route path="/transactions" component={Transactions} />
+            <Route path="/transaction/:id" component={Transaction} />
          </Switch>
         
           </div>

@@ -95,7 +95,11 @@ const ProductsList = () =>{
       window.location.reload();
       fetchData();
     };
- 
+ const handleClick = (e) => {
+   const id = e.row.id
+   window.location.href = `/product/${id}`
+  }
+
 
    
   
@@ -114,6 +118,7 @@ const ProductsList = () =>{
          className="productListGrid"
           rowsPerPageOptions={[8]}
           checkboxSelection
+          onCellClick = {handleClick}
         />
       </div>
     );

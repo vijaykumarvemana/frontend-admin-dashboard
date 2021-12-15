@@ -73,6 +73,10 @@ const deleteUser = async (id) => {
     window.location.reload();
     fetchUsers();
 }
+const handleClick = (e) => {
+    const id = e.row.id
+    window.location.href = `/user/${id}`
+}
 
 
      
@@ -93,6 +97,7 @@ const deleteUser = async (id) => {
                 disableSelectionOnRowClick
                 pageSize={10}
                 checkboxSelection
+                onCellClick = {handleClick}
                 />
                 </div>
     );

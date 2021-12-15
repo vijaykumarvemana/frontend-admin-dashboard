@@ -45,15 +45,15 @@ const LatestInfo = () => {
                 {
                     latestInfo.map(transaction => <tr className="latest-info-table-row">
                     <td className="latest-info-table-user">
-                        <img className="latest-info-table-user-img" src={transaction.customer.avatar} alt="user-img"/>
-                        <span className="latest-info-table-user-name">{transaction.customer.name}</span>
+                        <img className="latest-info-table-user-img" src={((transaction.customer) ||{}).avatar} alt="user-img"/>
+                        <span className="latest-info-table-user-name">{((transaction.customer) ||{}).name}</span>
                     </td>
                     <td className="latest-info-table-date">{  format( 
                                                 parseISO(transaction.Date) , "yyyy MMM dd")}</td>
                     <td className="latest-info-table-amount">{transaction.Amount}</td>
                     {
                         transaction.Status === "Pending" ? <td className="latest-info-table-status"><span className="latest-info-table-status-pending">{transaction.Status}</span></td> :
-                        transaction.Status === "Approved" ? <td className="latest-info-table-status"><span className="latest-info-table-status-approved">{transaction.Status}</span></td> :
+                        transaction.Status === "Accepted" ? <td className="latest-info-table-status"><span className="latest-info-table-status-approved">{transaction.Status}</span></td> :
            
                         <td className="latest-info-table-status"><span className="latest-info-table-status-rejected">{transaction.Status}</span></td> 
                     }

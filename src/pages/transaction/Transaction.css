@@ -1,0 +1,33 @@
+.trans-list{
+    flex:4
+}
+.trans-list{
+    flex-direction: column;
+ 
+}
+.trans-img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    
+    object-fit: cover;
+    margin-right: 10px;
+}
+.MuiDataGrid-root .MuiDataGrid-columnHeaderTitleContainer{
+    min-width: none !important;
+}
+
+.trans-button{
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #3bb077;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 20px;
+}
+.delete-trans{
+    color: red;
+    cursor: pointer;
+}

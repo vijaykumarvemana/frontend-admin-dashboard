@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 const UsefullInfo = () => {
     const products = useSelector(state => state.product.products);
     const customers = useSelector(state => state.customer.customers);
-    console.log(products);
+    
     return (
         <div className="usefull-info">
           <div className="usefull-Item Item1">

@@ -116,7 +116,8 @@ const Profile = ({user}) => {
                 </div>
             <div className="new-user-item2">
                 <label className="new-user-label">Password</label>
-                <input className="new-user-input" 
+                <input className="new-user-input"
+                 disabled
                   value={updateProfile.password}
                   onChange={(e) => setUpdateProfile({...updateProfile, password: e.target.value})}
                 type="password" placeholder="Passwword"/>
