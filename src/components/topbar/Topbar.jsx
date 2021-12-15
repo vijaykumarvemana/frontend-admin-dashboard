@@ -4,6 +4,7 @@ import Badge from '@material-ui/core/Badge';
 import {NotificationsNone}from '@material-ui/icons';
 import { IconButton } from '@material-ui/core';
 import Profile from '../profile/Profile';
+import {Exit} from '@material-ui/icons';
 
 
 const Topbar = () => {
@@ -38,6 +39,7 @@ const Topbar = () => {
                     <NotificationsNone color="action" />
                     </Badge>
                     </IconButton>
+                   
                     
                      
                       <IconButton onClick={handleProfile}>   
@@ -51,6 +53,7 @@ const Topbar = () => {
             {
                 toggle ? <Profile  user={user}/> : null
             }
+            
             
             </>
 
