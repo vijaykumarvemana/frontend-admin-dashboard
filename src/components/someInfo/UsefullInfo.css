@@ -1,9 +1,9 @@
 .usefull-info{
     width: 100%;
-    display: flex;
+    display: flex !important;
     height: 150px;
     justify-content: space-between;
-    color: white;
+    color: white !important;
 }
 
 .usefull-Item{
