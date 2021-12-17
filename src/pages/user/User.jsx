@@ -5,6 +5,7 @@ import { useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';    
 
 const User = ({match}) => {
+    const BASE_URL = process.env.REACT_APP_API_URL
     const id = match.params.id;
     console.log(id);
    const [user, setUser] = useState({});
@@ -27,7 +28,7 @@ useEffect(() => {
     const getUser = async () => {
         try {
            
-            const response = await fetch(`http://localhost:3001/customers/${id}`);
+            const response = await fetch(`${BASE_URL}/customers/${id}`);
             const data = await response.json();
             setUser(data);
             
@@ -51,7 +52,7 @@ useEffect(() => {
         console.log(updateUser);
         try {
             setLoading(true);
-            const response = await fetch(`http://localhost:3001/customers/${id}`, {
+            const response = await fetch(`${BASE_URL}/customers/${id}`, {
                 method: 'PUT',
                 body: JSON.stringify(updateUser),
                 headers: {
@@ -75,7 +76,7 @@ useEffect(() => {
         formData.append('customer-image', avatar);
         try {
             setLoading(true);
-            const response = await fetch(`http://localhost:3001/customers/${id}/avatar`, {
+            const response = await fetch(`${BASE_URL}/customers/${id}/avatar`, {
                 method: 'POST',
                 body: formData,
             });

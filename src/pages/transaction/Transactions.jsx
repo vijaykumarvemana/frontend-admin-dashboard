@@ -5,18 +5,23 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { format, parseISO } from 'date-fns'
 import { DeleteOutline } from "@material-ui/icons";
+import { useSelector, useDispatch } from 'react-redux';
+import { addTransaction, removeTransaction } from '../../actions';
 
 
 const Transactions = () => {
+    const BASE_URL = process.env.REACT_APP_API_URL
+    const dispatch = useDispatch();
     const [ transactions, setTransactions ] = useState([]);
 
     useEffect(() => {
         fetchTranx();
+        dispatch(addTransaction())
     }, []);
 
     const fetchTranx = async () => {
         try{
-            const response = await fetch('http://localhost:3001/transactions');
+            const response = await fetch(`${BASE_URL}/transactions`);
             const data = await response.json();
             setTransactions(data);
         }   catch(error){
@@ -24,38 +29,7 @@ const Transactions = () => {
         }
        
     };
-   const trans= {
-        "_id": "61b356f4079ce7a77e0279bc",
-        "customer": {
-            "_id": "61b2c446b913878c44938df7",
-            "name": "vijay kumar",
-            "email": "vvijaykumar_15@yahoo.com",
-            "phone": "3200258525",
-            "address": "Via Gabrio Serbelloni",
-            "avatar": "https://res.cloudinary.com/dashboard-admin/image/upload/v1638797110/customers-images/zsmrdlnszzqlabrcjdve.jpg",
-            "status": "active",
-            "createdAt": "2021-12-10T03:06:46.803Z",
-            "updatedAt": "2021-12-10T03:06:46.803Z",
-            "__v": 0
-        },
-        "product": {
-            "_id": "619ffc74fe61ddcfd4f48f0c",
-            "name": "iphone1",
-            "image": "https://res.cloudinary.com/dashboard-admin/image/upload/v1638653632/products-images/wabc4thang2ugfoqknp8.png",
-            "stock": 140,
-            "status": "not available",
-            "price": 1200,
-            "__v": 0
-        },
-        "Amount": 1300,
-        "Status": "Rejected",
-        "revenue": 1300,
-        "cost": 1000,
-        "profit": 300,
-        "Date": "2021-12-10T13:32:36.085Z",
-        "id": "61b356f4079ce7a77e0279bc"
-    }
-
+  
     const columns = [
         { field: 'id', headerName: 'ID' , width :90 },
         { field: 'customer', headerName: 'Customer' , width :150 ,
@@ -124,7 +98,7 @@ const Transactions = () => {
 
     const deleteTrans = async (id) => {
         console.log("hello")
-        const response = await fetch(`http://localhost:3001/transactions/${id}`, {
+        const response = await fetch(`${BASE_URL}/transactions/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
@@ -149,9 +123,9 @@ const Transactions = () => {
         <div className= "trans-list d-flex">
         <div className="d-flex my-3">
       <h4 className="trans-list-title">Transactions</h4>
-      <Link to="/newtransaction">
+      {/* <Link to="/newtransaction">
             <button className="trans-button">Create</button>
-        </Link>
+        </Link> */}
     </div>
         <DataGrid 
            rows={transactions}

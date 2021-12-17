@@ -6,8 +6,10 @@ import { useState, useEffect } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { addCustomers } from '../../actions';
+import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 
 const Users = () => {
+    const BASE_URL = process.env.REACT_APP_API_URL
     const users = useSelector(state => state);
     console.log(users);
     const dispatch = useDispatch();
@@ -21,7 +23,7 @@ const Users = () => {
 
 
     const fetchUsers = async () => {
-        const response = await fetch('http://localhost:3001/customers');
+        const response = await fetch(`${BASE_URL}/customers`);
         const data = await response.json();
         setUsers(data);
         
@@ -44,7 +46,18 @@ const Users = () => {
     { field: 'phone', headerName: 'Phone', width:200 },
 
     { field: 'address', headerName: 'Address', width: 200 },
-    { field: 'status', headerName: 'Status', width: 120 },
+    { field: 'status', headerName: 'Status', width: 120 ,
+        renderCell: (params) => {
+            return (
+                <div className="productListItem">
+                  {params.row.status === "Active" ? (
+                    <h6 ><span style={{ color: "green", fontSize:"bolder"}}><FiberManualRecordIcon className='active1'/></span>{params.row.status}</h6>
+                  ) : (
+                    <h6 ><span style={{ color: "red", fontSize:"bolder"}}><FiberManualRecordIcon className='active1'/></span>{params.row.status}</h6>
+                  )}
+                </div>)
+        },
+        },
     { field: 'action', headerName: 'Action', width: 150,
      renderCell: (params) => {
  
@@ -62,7 +75,7 @@ const Users = () => {
 
 const deleteUser = async (id) => {
     alert('Are you sure you want to delete this user?');
-    const response = await fetch(`http://localhost:3001/customers/${id}`, {
+    const response = await fetch(`${BASE_URL}/customers/${id}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'

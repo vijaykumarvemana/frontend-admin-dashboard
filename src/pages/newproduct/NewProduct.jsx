@@ -1,6 +1,7 @@
 import './NewProduct.css';
 import { useState } from 'react';
 const NewProduct = () => {
+    const BASE_URL = process.env.REACT_APP_API_URL;
     const [product, setProduct] = useState({
         name: '',
         stock: null,
@@ -13,7 +14,7 @@ const NewProduct = () => {
     const postData = async () => { 
         
         try {
-            const response = await fetch('http://localhost:3001/products', {
+            const response = await fetch(`${BASE_URL}/products`, {
                 method: 'POST',
                 headers: {  
                     'Content-Type': 'application/json'
@@ -34,7 +35,7 @@ const NewProduct = () => {
 
     const fetchNewProductId = async () => {
         try {
-            const response = await fetch('http://localhost:3001/products', {
+            const response = await fetch(`${BASE_URL}/products`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'
@@ -85,7 +86,7 @@ const postImage = async (id) => {
     const formData = new FormData();
     formData.append('product-image', imageFile);
     try {
-        const response = await fetch(`http://localhost:3001/products/${id}/image`, {
+        const response = await fetch(`${BASE_URL}/products/${id}/image`, {
             method: 'POST',
             body: formData
         });

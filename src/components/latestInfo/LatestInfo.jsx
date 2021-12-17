@@ -2,6 +2,7 @@ import "./LatestInfo.css"
 import { useState, useEffect } from "react"
 import { format, parseISO } from 'date-fns'
 const LatestInfo = () => {
+    const BASE_URL = process.env.REACT_APP_API_URL;
   const [latestInfo, setLatestInfo] = useState([])
     useEffect(() => {
         fetchLatestInfo()
@@ -9,7 +10,7 @@ const LatestInfo = () => {
 
     const fetchLatestInfo = async () => {
         try {
-            const response = await fetch("http://localhost:3001/transactions")
+            const response = await fetch(`${BASE_URL}/transactions`)
             const data = await response.json()
             console.log(data)
             setLatestInfo(data)

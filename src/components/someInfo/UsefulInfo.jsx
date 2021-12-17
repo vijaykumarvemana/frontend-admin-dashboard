@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 const UsefullInfo = () => {
     const products = useSelector(state => state.product.products);
     const customers = useSelector(state => state.customer.customers);
+    const transactions = useSelector(state => state.transaction.transactions);
     
     return (
         <div className="usefull-info">
@@ -43,7 +44,7 @@ const UsefullInfo = () => {
                      <PaymentRounded />
                 </span>
                 <span className="usefull-Info-Value-Unit">
-                  250 
+                  {transactions.length} 
                     
                 </span>
             </div>

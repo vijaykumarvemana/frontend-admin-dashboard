@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom'
 import { useEffect, useState } from 'react';
 import {useSelector, useDispatch} from 'react-redux'
 import { addProducts, removeProduct } from '../../actions'
+import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 
 const ProductsList = () =>{
   const BASE_URL = process.env.REACT_APP_API_URL
@@ -59,6 +60,17 @@ const ProductsList = () =>{
         field: "status",
         headerName: "Status",
         width: 120,
+        renderCell: (params) => {
+          return (
+            <div className="productListItem">
+              {params.row.status === "Available" ? (
+                <h6 ><span style={{ color: "green", fontSize:"bolder"}}><FiberManualRecordIcon className='available'/></span>{params.row.status}</h6>
+              ) : (
+                <h6 ><span style={{ color: "red", fontSize:"bolder"}}><FiberManualRecordIcon className='available'/></span>{params.row.status}</h6>
+              )}
+            </div>
+          );
+        }
       },
       {
         field: "price",

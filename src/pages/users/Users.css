@@ -29,3 +29,8 @@
    color: red;
     cursor: pointer;
 }
+.active1{
+    font-size: 5px;
+  height: 10px !important;
+    width: 10px !important;
+}

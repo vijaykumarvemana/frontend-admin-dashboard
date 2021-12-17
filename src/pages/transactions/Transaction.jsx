@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { Row, Col, Container, Card, ListGroup, Form,Button, Alert } from "react-bootstrap";
 
 const Transaction = ({match}) => {
+  const BASE_URL = process.env.REACT_APP_API_URL;
     const id = match.params.id;
 
     const [transaction, setTransaction] = useState([])
@@ -25,7 +26,7 @@ fetchtransaction()
     }, [])
 
     const fetchtransaction = async () => {
-        const data = await fetch(`http://localhost:3001/transactions/${id}`)
+        const data = await fetch(`${BASE_URL}/transactions/${id}`)
         const transaction = await data.json()
         console.log(transaction)
         setTransaction(transaction)
@@ -40,7 +41,7 @@ fetchtransaction()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const data = await fetch(`http://localhost:3001/transactions/${id}`, {
+        const data = await fetch(`${BASE_URL}/transactions/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -67,7 +68,7 @@ fetchtransaction()
                     <ListGroup.Item>Cutomer Name: {((transaction.customer)|| {}).name}</ListGroup.Item>
                     <ListGroup.Item>Product Name: {((transaction.product)||{}).name}</ListGroup.Item>
                     <ListGroup.Item>Amount: {transaction.Amount}</ListGroup.Item>
-                    <ListGroup.Item>Status:{transaction.Status === "Pending" ? <h6 style={{color:'orange'}}>Pending</h6> : transaction.Status === "Accepted" ? <h6 style={{color:'green'}}>Accepted </h6>: transaction.Status === "Rejected" ? <h6 style={{color:'red'}}>Rejected </h6> :<h6>no data</h6>}</ListGroup.Item>
+                    <ListGroup.Item>Status:{transaction.Status === "Pending" ? <h6 style={{color:'white', backgroundColor:"orange"}}>Pending</h6> : transaction.Status === "Accepted" ? <h6 style={{color:'white', backgroundColor:"green"}}>Accepted </h6>: transaction.Status === "Rejected" ? <h6 style={{color:'white', backgroundColor:"red"}}>Rejected </h6> :<h6>no data</h6>}</ListGroup.Item>
                     </ListGroup>
                     <Card.Footer>
                         </Card.Footer>

@@ -4,14 +4,14 @@ import Badge from '@material-ui/core/Badge';
 import {NotificationsNone}from '@material-ui/icons';
 import { IconButton } from '@material-ui/core';
 import Profile from '../profile/Profile';
-import {Exit} from '@material-ui/icons';
-
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 const Topbar = () => {
+    const BASE_URL = process.env.REACT_APP_API_URL;
     const [user, setUser] = useState({})
     const [toggle , setToggle] = useState(false)
     useEffect(() => {
-        const data = fetch('http://localhost:3001')
+        const data = fetch(`${BASE_URL}`)
             .then(res => res.json())
             .then(res => {
                 console.log(res);
@@ -24,6 +24,10 @@ const Topbar = () => {
        
      
     }
+    const handleLogout = () => {
+        localStorage.removeItem('token');
+        window.location.href = '/';
+    }
 
         
     return (
@@ -35,18 +39,26 @@ const Topbar = () => {
                 </div>
                 <div className="topbar-right">
                     
-                    <IconButton><Badge badgeContent={4} color="primary">
+                    {/* <IconButton><Badge badgeContent={4} color="primary">
                     <NotificationsNone color="action" />
                     </Badge>
-                    </IconButton>
+                    </IconButton> */}
                    
                     
                      
-                      <IconButton onClick={handleProfile}>   
+                      <IconButton onClick={handleProfile}> 
+                       
                       
                      
                      <img src={((user[0]) || {}).image} style={{width:"30px", height:"30px",  border: "1px solid black", borderRadius: "50%", objectFit:"cover"}} alt="image"/>   
                      </IconButton>
+                     <IconButton>
+                     <ExitToAppIcon className='exit-button'  onClick={handleLogout}/>
+                     
+                     </IconButton>
+                   
+                     
+                     
                      </div>
                 </div>
             </div>

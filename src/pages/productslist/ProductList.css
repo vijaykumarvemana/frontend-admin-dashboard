@@ -42,6 +42,13 @@
     cursor: pointer;
     margin-left: 945px;
 }
+
+.available{
+
+    font-size: 5px;
+  height: 10px !important;
+    width: 10px !important;
+}
 /* .productListGrid{
     background: #536976;  
 background: -webkit-linear-gradient(to right, #292E49, #536976);  

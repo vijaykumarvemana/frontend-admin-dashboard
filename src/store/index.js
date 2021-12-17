@@ -1,6 +1,7 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import productsReducer from "../reducers/products";
 import usersReducer from "../reducers/users";
+import transactionReducer from "../reducers/transaction";
 import thunk from "redux-thunk";
 import { persistStore, persistReducer } from 'redux-persist'
 import storageSession from 'redux-persist/lib/storage/session'
@@ -17,7 +18,11 @@ export const initialState = {
     },
     product: { 
         products: [], 
-    },  
+    },
+    transaction: {
+        transactions: [],
+
+    }  
 }
 
 const persistConfig = {
@@ -35,6 +40,7 @@ const persistConfig = {
 const mainReducer = combineReducers({
     customer: usersReducer,
     product: productsReducer,
+    transaction: transactionReducer,
 })
  
 

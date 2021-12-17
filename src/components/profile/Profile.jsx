@@ -1,6 +1,7 @@
 import '../profile/Profile.css';
 import { useEffect, useState } from 'react';
 const Profile = ({user}) => {
+    const BASE_URL = process.env.REACT_APP_API_URL;
     console.log(user[0].name);
     const id = user[0]._id.toString();
     console.log(id);
@@ -21,7 +22,7 @@ const Profile = ({user}) => {
 
     const getAdmin = async () => {
       try{
-        const response = await fetch(`http://localhost:3001`);
+        const response = await fetch(`${BASE_URL}`);
         const data = await response.json();
         setAdmin(data);
         setUpdateProfile({
@@ -39,7 +40,7 @@ const Profile = ({user}) => {
         e.preventDefault();
 
         try{
-            const response = await fetch(`http://localhost:3001/${id}`, {
+            const response = await fetch(`${BASE_URL}/${id}`, {
                 method: 'PUT',
                 body: JSON.stringify(updateProfile),
                 headers: {
@@ -61,7 +62,7 @@ const Profile = ({user}) => {
        const formData = new FormData();
         formData.append('user-picture', image);
         try{
-            const response = await fetch(`http://localhost:3001/${id}/picture`, {
+            const response = await fetch(`${BASE_URL}/${id}/picture`, {
                 method: 'POST',
                 body: formData
             });
@@ -117,7 +118,7 @@ const Profile = ({user}) => {
             <div className="new-user-item2">
                 <label className="new-user-label">Password</label>
                 <input className="new-user-input"
-                 disabled
+                disabled
                   value={updateProfile.password}
                   onChange={(e) => setUpdateProfile({...updateProfile, password: e.target.value})}
                 type="password" placeholder="Passwword"/>

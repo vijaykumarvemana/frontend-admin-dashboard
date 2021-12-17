@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import "./Login.css"
 
-
+const BASE_URL = process.env.REACT_APP_API_URL;
 
 export default class Login extends Component {
+	
 	state = {
 		loggedinUser: {
 			email: '',
@@ -26,7 +27,7 @@ export default class Login extends Component {
 		console.log(this.state.loggedinUser);
 
 		try {
-			let response = await fetch('http://localhost:3001/login', {
+			let response = await fetch(`${BASE_URL}/login`, {
 				method: 'POST',
 				body: JSON.stringify(this.state.loggedinUser),
 				headers: {

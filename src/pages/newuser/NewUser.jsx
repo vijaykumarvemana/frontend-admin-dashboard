@@ -2,6 +2,7 @@ import './NewUser.css'
 import { useState , useEffect} from 'react'
 
 const NewUser = () => {
+    const BASE_URL = process.env.REACT_APP_API_URL;
     const [user , setUser] = useState({
         name: '',
         email: '',
@@ -13,7 +14,7 @@ const NewUser = () => {
     const [avatar , setAvatar] = useState('')
     const postUser = async () => {
         try {
-            const response = await fetch('http://localhost:3001/customers', {
+            const response = await fetch(`${BASE_URL}/customers`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -32,7 +33,7 @@ const NewUser = () => {
 
     const fetchNewUserId = async () => {
         try {
-            const response = await fetch('http://localhost:3001/customers')
+            const response = await fetch(`${BASE_URL}/customers`)
             const data = await response.json()  
             console.log(data)
             const newUserId = data[data.length - 1]._id
@@ -70,14 +71,14 @@ const NewUser = () => {
             const formData = new FormData()
             formData.append('customer-image', avatar)
             try{
-                const response = await fetch(`http://localhost:3001/customers/${newUserId}/avatar`, {
+                const response = await fetch(`${BASE_URL}/customers/${newUserId}/avatar`, {
                     method: 'POST',
                     body: formData
                 })
                 if(response.ok) {
-                    alert('Avatar uploaded successfully')
+                    console.log('Image uploaded successfully')
                 } else {
-                    alert('Avatar upload failed')
+                    alert('failed')
                 }
             } catch (error) {
                 console.log(error)

@@ -150,11 +150,18 @@ const imageUpload = (e) => {
                                                         placeholder=" enter Stoke"
                                                         />
                                                         <label className="product-form-label"> Status:</label>
-                                                        <input className="product-form-input" 
+                                                        <select aria-label="Books nad Snippets"
+                                                        value={updateProduct.status}
+                                                        onChange= {(e) => setUpdateProduct({...updateProduct, status: e.target.value})}>
+                                                         <option >selection</option>
+                                                         <option >Available</option>
+                                                         <option >Not Available</option>
+                                                         </select>
+                                                        {/* <input className="product-form-input" 
                                                         type="text" 
                                                         value={updateProduct.status}
                                                         onChange= {(e) => setUpdateProduct({...updateProduct, status: e.target.value})} 
-                                                        placeholder=" enter status"/>
+                                                        placeholder=" enter status"/> */}
                                                         <label className="product-form-label"> Price:</label>
                                                         <input className="product-form-input" 
                                                         type="number" 

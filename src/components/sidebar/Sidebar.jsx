@@ -37,7 +37,7 @@ const Sidebar = () => {
                    
                     <li className="sidebar-Item">
                         <TrendingUp className="sidebar-Icon" />
-                        Sales
+                        Reports
                     </li>
                 
                     
@@ -59,10 +59,10 @@ const Sidebar = () => {
                             <DynamicFeed className="sidebar-Icon" />
                             Feedback 
                         </li> */}
-                        <li className="sidebar-Item">
+                        {/* <li className="sidebar-Item">
                             <Timeline className="sidebar-Icon" />
                             Analytics 
-                        </li>
+                        </li> */}
                     </ul>
                 </div>
                 </div>

@@ -3,6 +3,7 @@ import { Visibility } from "@material-ui/icons"
 import { useEffect, useState } from 'react'
 
 const NewUserList = () => {
+    const BASE_URL = process.env.REACT_APP_API_URL;
     const [toggle , setToggle] = useState(false)
     const [users , setUsers] = useState([])
     const handleClick = () => {
@@ -16,7 +17,7 @@ const NewUserList = () => {
  
  useEffect( async() => {
     try{
-        const response = await fetch('http://localhost:3001/customers',
+        const response = await fetch(`${BASE_URL}/customers`,
         {
             method: 'GET',
            

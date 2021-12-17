@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux';
 import { format, parseISO } from 'date-fns'
 import './Home.css';
 const Home = (props) =>{
+   const BASE_URL = process.env.REACT_APP_API_URL;
   const [customData, setCustomData] = useState([]);
 
 
@@ -17,7 +18,7 @@ const Home = (props) =>{
    }, []);
 
    const fetchCustomData = async () => {
-       const response = await fetch('http://localhost:3001/customers/users-ActiveUsers');
+       const response = await fetch(`${BASE_URL}/customers/users-count`);
          const data = await response.json();
          setCustomData(data);
          console.log(data);
