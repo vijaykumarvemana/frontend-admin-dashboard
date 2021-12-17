@@ -9,7 +9,7 @@ const UsefullInfo = () => {
     const transactions = useSelector(state => state.transaction.transactions);
     
     return (
-        <div className="d-flex text-white">
+        <div className="d-flex text-white ">
         
           <div className="usefull-Item Item1">
             <span className="usefull-Info-Title">Total Products</span>
