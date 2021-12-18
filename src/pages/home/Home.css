@@ -1,6 +1,7 @@
 .home-page{
     flex:4;
    margin-left: 40px;
+   margin-top: 15px;
 }
 .home-new-latest{
     display:flex;
