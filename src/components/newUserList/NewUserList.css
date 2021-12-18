@@ -4,6 +4,9 @@
     box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
     padding: 20px;
     margin-right: 90px;
+    background-color: #5CDB95;
+    color: black;
+    border-radius: 7px;
     
 } 
 .new-user-list-title{
@@ -43,7 +46,7 @@
     border: none;
     border-radius: 10px;
     padding: 5px 10px;
-    background-color: #00bcd4;
+    background-color: #435e51 !important;
     color: #fff;
     cursor: pointer;
     margin-left:25px;

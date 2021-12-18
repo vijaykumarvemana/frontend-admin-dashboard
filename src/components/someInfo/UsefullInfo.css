@@ -1,5 +1,6 @@
 .usefull-info{
     width: 100%;
+    margin-top: 15px;
     display: flex !important;
     height: 150px;
     justify-content: space-between;

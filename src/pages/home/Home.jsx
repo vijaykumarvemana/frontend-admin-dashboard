@@ -113,7 +113,7 @@ const Home = (props) =>{
             <UsefullInfo />
             
            
-            <Chart data={activeUsersArray} title="User Analytics" grid datakey="ActiveUsers"/>
+            <Chart data={activeUsersArray} title="Customers Analytics" grid datakey="ActiveUsers"/>
             
             <div className="home-new-latest" style={{"display":"flex", "marginLeft":"20px"}}>
                 <NewUserList />

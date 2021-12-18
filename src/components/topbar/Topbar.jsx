@@ -50,7 +50,7 @@ const Topbar = () => {
                        
                       
                      
-                     <img src={((user[0]) || {}).image} style={{width:"30px", height:"30px",  border: "1px solid black", borderRadius: "50%", objectFit:"cover"}} alt="image"/>   
+                     <img src={((user[0]) || {}).image} style={{width:"35px", height:"35px",  border: "2px solid #ffffff", borderRadius: "50%", objectFit:"cover"}} alt="image"/>   
                      </IconButton>
                      <IconButton>
                      <ExitToAppIcon className='exit-button'  onClick={handleLogout}/>

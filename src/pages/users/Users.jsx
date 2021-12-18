@@ -63,7 +63,7 @@ const Users = () => {
  
             return (     <>
             <Link to={"/user/" + params.row._id}>
-                <button className="user-button">Edit</button>
+                <button className="user-buttonu">Edit</button>
                 </Link>
             <DeleteOutline onClick={() => deleteUser(params.row._id)} className="delete-user"/>
             </>)

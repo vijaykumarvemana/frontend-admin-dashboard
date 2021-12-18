@@ -19,7 +19,7 @@ const Sidebar = () => {
                         <Link to="/users" className="link">
                         <li className="sidebar-Item">
                             <PermIdentity className="sidebar-Icon" />
-                            Users 
+                            Customers
                         </li>
                         </Link>
                         <Link to="/products" className="link">
@@ -64,6 +64,7 @@ const Sidebar = () => {
                             Analytics 
                         </li> */}
                     </ul>
+                    <div>hello</div>
                 </div>
                 </div>
             </div>

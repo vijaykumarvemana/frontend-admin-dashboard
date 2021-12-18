@@ -4,6 +4,8 @@
     box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
     padding: 20px;
     margin-right: 20px;
+    background-color: #5CDB95;
+    border-radius: 7px;
 }
 .latest-info{
    width: 100%;
@@ -25,15 +27,16 @@
     font-weight: 600;
 }
 .latest-info-table-user-img{
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     object-fit: cover;
     margin-right: 10px;
     margin-bottom: 4px;
+    margin-top: 5px;
 }
 .latest-info-table-date, .latest-info-table-amount{
-   font-weight: 300;
+   
    text-align: center;
 }
 .latest-info-button{
