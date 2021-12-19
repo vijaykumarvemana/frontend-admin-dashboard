@@ -106,7 +106,7 @@ const postImage = async (id) => {
 
     return (
         <div className= "new-product">
-            <h1 className="new-product-title">New Product</h1>
+            <h1 className="new-product-title mt-2"> Create New Product</h1>
             <form className="new-product-form" onSubmit={handleSubmit}>
                 <div className="new-product-item">
                     <label className="new-product-label">Name</label>
