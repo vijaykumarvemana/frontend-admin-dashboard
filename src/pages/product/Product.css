@@ -11,7 +11,7 @@
     width: 80px;
     border: none;
     padding: 5px;
-    background-color: teal;
+    background-color: #3a3737;
     color: white;
     border-radius: 5px;
     font-size: 16px;
@@ -108,4 +108,8 @@ flex: 1;
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
+}
+.product-form-button{
+    background-color: #3a3737;
+    color: white;
 }

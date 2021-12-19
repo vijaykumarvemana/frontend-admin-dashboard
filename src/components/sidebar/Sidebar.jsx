@@ -8,7 +8,7 @@ const Sidebar = () => {
         <div className="sidebar">
             <div className="sidebar-Wrapper">
                 <div className="sidebar-Menu">
-                    <h3 className="sidebar-Title">Menu</h3>
+                    <h3 className="sidebar-Title">List</h3>
                     <ul className="sidebar-List">
                         <Link to="/" className="link">
                         <li className="sidebar-Item active">
@@ -49,7 +49,7 @@ const Sidebar = () => {
                     </ul>
                 </div>
                 <div className="sidebar-Menu">
-                    <h3 className="sidebar-Title">Notifications</h3>
+                    <h3 className="sidebar-Title">Announcements</h3>
                     <ul className="sidebar-List">
                         <li className="sidebar-Item">
                             <MailOutline className="sidebar-Icon" />
@@ -64,7 +64,7 @@ const Sidebar = () => {
                             Analytics 
                         </li> */}
                     </ul>
-                    <div>hello</div>
+                    
                 </div>
                 </div>
             </div>
