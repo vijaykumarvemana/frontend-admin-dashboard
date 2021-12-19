@@ -90,7 +90,7 @@ const Transactions = () => {
                 <button className="trans-button">Edit</button>
 
             </Link>
-            <DeleteOutline onClick ={ () => deleteTrans(params.row._id)} className="delete-trans"/>    
+            <h6 onClick ={ () => deleteTrans(params.row._id)} className="delete-trans">Delete</h6>   
             </>    )
     }
     },   

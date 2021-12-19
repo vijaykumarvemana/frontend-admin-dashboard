@@ -184,7 +184,7 @@ useEffect(() => {
                                                                                     <div className= "user-Update-right">
                                                                                         <div className= "user-Update-upload">
                                                                                             <img src={user.avatar} alt="avatar" className="user-Update-avatar"/>
-                                                                                            <label className="user-Update-label"><Publish /></label>
+                                                                                            <label className="user-Update-label"></label>
                                                                                             <input className="user-Update-input"
                                                                                             onChange= {(e) => imageUpload(e)}
                                                                                              type="file" placeholder="" />

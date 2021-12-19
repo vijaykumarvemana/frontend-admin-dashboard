@@ -154,8 +154,8 @@ const imageUpload = (e) => {
                                                         value={updateProduct.status}
                                                         onChange= {(e) => setUpdateProduct({...updateProduct, status: e.target.value})}>
                                                          <option >selection</option>
-                                                         <option >Available</option>
-                                                         <option >Not Available</option>
+                                                         <option >available</option>
+                                                         <option >unavailable</option>
                                                          </select>
                                                         {/* <input className="product-form-input" 
                                                         type="text" 
@@ -184,7 +184,7 @@ const imageUpload = (e) => {
                                                             <div className="product-upload">
                                                                 <img className="product-upload-image" src={product.image} alt=""/>
                                                                 <label for="file">
-                                                                    <Publish />
+                                                                   
                                                                 </label>
                                                                 <input type="file" 
                                                                 id="file" 

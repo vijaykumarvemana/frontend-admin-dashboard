@@ -63,7 +63,7 @@ const ProductsList = () =>{
         renderCell: (params) => {
           return (
             <div className="productListItem">
-              {params.row.status === "Available" ? (
+              {params.row.status === "available" ? (
                 <h6 ><span style={{ color: "green", fontSize:"bolder"}}><FiberManualRecordIcon className='available'/></span>{params.row.status}</h6>
               ) : (
                 <h6 ><span style={{ color: "red", fontSize:"bolder"}}><FiberManualRecordIcon className='available'/></span>{params.row.status}</h6>
@@ -87,10 +87,10 @@ const ProductsList = () =>{
               <Link to={"/product/" + params.row._id}>
                 <button className="productListEdit">Edit</button>
               </Link>
-              <DeleteOutline
+              <h6
                 className="productListDelete"
                 onClick={() => handleDelete(params.row._id)}
-              />
+              >Delete</h6>
             </>
           );
         },

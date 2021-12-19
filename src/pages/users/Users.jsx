@@ -50,7 +50,7 @@ const Users = () => {
         renderCell: (params) => {
             return (
                 <div className="productListItem">
-                  {params.row.status === "Active" ? (
+                  {params.row.status === "active" ? (
                     <h6 ><span style={{ color: "green", fontSize:"bolder"}}><FiberManualRecordIcon className='active1'/></span>{params.row.status}</h6>
                   ) : (
                     <h6 ><span style={{ color: "red", fontSize:"bolder"}}><FiberManualRecordIcon className='active1'/></span>{params.row.status}</h6>
@@ -65,7 +65,7 @@ const Users = () => {
             <Link to={"/user/" + params.row._id}>
                 <button className="user-buttonu">Edit</button>
                 </Link>
-            <DeleteOutline onClick={() => deleteUser(params.row._id)} className="delete-user"/>
+            <h6 onClick={() => deleteUser(params.row._id)} className="delete-user">Delete</h6>
             </>)
         
    }
@@ -108,6 +108,7 @@ const handleClick = (e) => {
                rows={data}
                 columns={columns}
                 disableSelectionOnRowClick
+                
                 pageSize={10}
                 checkboxSelection
                 onCellClick = {handleClick}

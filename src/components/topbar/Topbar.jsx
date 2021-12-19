@@ -35,7 +35,7 @@ const Topbar = () => {
         <div className="topbar">
             <div className="topbar-wrapper">
                 <div className="topbar-left">
-                    <span className="logo">Pro-Admin</span>
+                    <span className="logo">Dashboard</span>
                 </div>
                 <div className="topbar-right">
                     
