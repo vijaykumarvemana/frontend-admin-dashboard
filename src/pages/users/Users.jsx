@@ -65,7 +65,7 @@ const Users = () => {
             <Link to={"/user/" + params.row._id}>
                 <button className="user-buttonu">Edit</button>
                 </Link>
-            <h6 onClick={() => deleteUser(params.row._id)} className="delete-user">Delete</h6>
+            <button onClick={() => deleteUser(params.row._id)} className="user-buttonu">Delete</button>
             </>)
         
    }

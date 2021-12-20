@@ -87,10 +87,12 @@ const ProductsList = () =>{
               <Link to={"/product/" + params.row._id}>
                 <button className="productListEdit">Edit</button>
               </Link>
-              <h6
-                className="productListDelete"
+              
+              <button  className="productListEdit"
+                
                 onClick={() => handleDelete(params.row._id)}
-              >Delete</h6>
+              >Delete</button>
+              
             </>
           );
         },
