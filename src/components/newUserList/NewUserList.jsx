@@ -8,7 +8,7 @@ const NewUserList = () => {
     const [users , setUsers] = useState([])
     const handleClick = () => {
        
-        setToggle(!toggle)
+        // setToggle(!toggle)
                     
     }
  
