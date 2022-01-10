@@ -65,11 +65,11 @@ console.log(userList)
          
                 
                 
-                        toggle && <div className="user-description">
-                            < div>
-                                {user.address}
-                            </div>
-                        </div>
+                        // toggle && <div className="user-description">
+                        //     < div>
+                        //         {user.address}
+                        //     </div>
+                        // </div>
     
                     }
         

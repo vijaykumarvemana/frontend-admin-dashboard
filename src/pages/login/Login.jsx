@@ -65,13 +65,15 @@ export default class Login extends Component {
 						<div className='auth-inner'>
 							<form onSubmit={this.handleSubmit}>
 								<h3>Login</h3>
+								<p>email: <strong>vemanavijaykumar154@gmail.com</strong></p>
+								<p>password:<strong>12345</strong></p>
 
 								<div className='form-group'>
 									<label>Email address</label>
 									<input
 										type='email'
 										className='form-control'
-										placeholder='Enter email'
+										placeholder='vemanavijaykumar154@gmail.com'
 										value={this.state.loggedinUser.email}
 										onChange={(e) => this.handleInput('email', e.target.value)}
 									/>
@@ -82,7 +84,7 @@ export default class Login extends Component {
 									<input
 										type='password'
 										className='form-control'
-										placeholder='Enter password'
+										placeholder='12345'
 										value={this.state.loggedinUser.password}
 										onChange={(e) =>
 											this.handleInput('password', e.target.value)
